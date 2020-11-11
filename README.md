@@ -62,3 +62,4 @@
 
 ### Association
 - belong_to :purchase
+
