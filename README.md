@@ -8,15 +8,15 @@
 | email                | string | null: false |
 | encrypted_password   | string | null: false |
 | last_name            | string | null: false |
-| first_name| text     | string | null: false |
+| first_name           | string | null: false |
 | last_name_kana       | string | null: false |
 | first_name_kana      | string | null: false |
 | birthday             | date   | null: false |
 
 ### Association
 
-- has_many :item
-- has_many :purchase
+- has_many :items
+- has_many :purchases
 
 
 ## items テーブル
