@@ -1,4 +1,4 @@
-# テーブル設計
+
 
 ## users テーブル
 
@@ -62,4 +62,3 @@
 
 ### Association
 - belong_to :purchase
-
