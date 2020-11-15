@@ -21,6 +21,12 @@ require 'rails_helper'
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank")
       end
+
+      it "emailが@が含まれないと登録できないこと" do
+        @user.email = "sample"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email is invalid")
+      end
   
       it "passwordが空では登録できないこと" do
         @user.password = nil
