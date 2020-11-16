@@ -26,7 +26,7 @@
 | title           | string    | null: false                    |
 | text            | text      | null: false                    |
 | category_id     | integer   | null: false                    |
-| status_id       | integer   | null: false                    |
+| product_id      | integer   | null: false                    |
 | shipping_id     | integer   | null: false                    |
 | prefectures_id  | integer   | null: false                    |
 | days_id         | integer   | null: false                    |
