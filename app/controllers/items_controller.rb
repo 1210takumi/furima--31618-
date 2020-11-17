@@ -18,22 +18,22 @@ class ItemsController < ApplicationController
       end
   end
 
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-  end
+  # def destroy
+  #   item = Item.find(params[:id])
+  #   item.destroy
+  # end
 
   def edit
   end
 
-  def update
-    @item = Item.find(params[:id])
-    if @item.update(item_params)
-      redirect_to item_path
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   @item = Item.find(params[:id])
+  #   if @item.update(item_params)
+  #     redirect_to item_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   def show
     @purchases = Purchases.new
