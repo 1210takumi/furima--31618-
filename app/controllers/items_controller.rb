@@ -35,11 +35,11 @@ class ItemsController < ApplicationController
   #   end
   # end
 
-  def show
-    @purchases = Purchases.new
-    @purchases = @purchases.includes(:user)
-    @item = Item.find(params[:id])
-  end
+  # def show
+  #   @purchases = Purchases.new
+  #   @purchases = @purchases.includes(:user)
+  #   @item = Item.find(params[:id])
+  # end
 
   private
   def item_params
