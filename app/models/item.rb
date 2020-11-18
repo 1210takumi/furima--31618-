@@ -23,6 +23,7 @@ class Item < ApplicationRecord
   validates :shipping_id
   end
   
+  has_one_attached :image
   def was_attached?
     self.image.attached?
   end
