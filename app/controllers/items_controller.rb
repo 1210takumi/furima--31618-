@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit]
   before_action :set_item, only: [:edit, :update]
   before_action :move_to_index, except: [:index]
 
@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
 
   def edit
     unless user_signed_in?
+      redirect_to root_path
     end
   end
 
