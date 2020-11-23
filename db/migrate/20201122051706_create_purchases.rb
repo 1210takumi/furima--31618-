@@ -3,8 +3,8 @@ class CreatePurchases < ActiveRecord::Migration[6.0]
     create_table :purchases do |t|
 
       t.timestamps
-      t.references :user, null: false, foreign_key: true
-      t.references :item, null: false, foreign_key: true
+      t.references :user, foreign_key: true 
+      t.references :item, foreign_key: true 
     end
   end
 end
