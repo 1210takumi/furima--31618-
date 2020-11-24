@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @item = Item.all
+    @item = Item.all.order(created_at: :DESC)
   end
 
   def new 
