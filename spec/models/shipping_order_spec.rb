@@ -6,10 +6,10 @@ RSpec.describe ShippingOrder, type: :model do
       seller  = FactoryBot.create(:user)
       buyer = FactoryBot.create(:user)  
       product = FactoryBot.create(:item)
+      @shipping_order = FactoryBot.build(:shipping_order)
+      
       product.image = fixture_file_upload('public/apple-touch-icon.png',  'apple-touch-icon')
-      # purchase history = FactoryBot.create(:user)
 
-        @shipping_order = FactoryBot.build(:shipping_order)
       end
   
       it 'すべての値が正しく入力されていれば保存できること' do
@@ -43,5 +43,28 @@ RSpec.describe ShippingOrder, type: :model do
         expect(@shipping_order.errors.full_messages).to include("Phone number can't be blank")
       end
 
-    end 
-end
+      it 'cityが空の場合購入できない' do
+        @shipping_order.city = ""
+        @shipping_order.valid?
+        expect(@shipping_order.errors.full_messages).to include("City can't be blank")
+      end
+
+      it 'addressが空の場合購入できない' do
+        @shipping_order.address = ""
+        @shipping_order.valid?
+        expect(@shipping_order.errors.full_messages).to include("Address can't be blank")
+      end
+
+      it  'tokenが空の場合購入できない' do
+        @shipping_order.card_token = ""
+        @shipping_order.valid?
+        expect(@shipping_order.errors.full_messages).to include("Card token can't be blank")
+      end
+
+      it 'phone_numberが11桁以内' do
+        @shipping_order.phone_number = '090000000000000'
+        @shipping_order.valid?
+        expect(@shipping_order.errors.full_messages).to include("Phone number Too long")
+      end
+    end
+  end 
