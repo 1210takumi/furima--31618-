@@ -16,6 +16,10 @@ RSpec.describe ShippingOrder, type: :model do
         it 'すべての値が正しく入力されていれば保存できること' do
           expect(@shipping_order).to be_valid
         end  
+        it 'building_nameは空でも保存できること' do
+          @shipping_order.building_name = nil
+          expect(@shipping_order).to be_valid
+        end
       end
       
       context '商品購入ができない時' do
@@ -35,10 +39,6 @@ RSpec.describe ShippingOrder, type: :model do
           expect(@shipping_order.errors.full_messages).to include("Prefecture must be other than 1")
         end
 
-        it 'building_nameは空でも保存できること' do
-          @shipping_order.building_name = nil
-          expect(@shipping_order).to be_valid
-        end
         it 'phone_numberが空だと保存できないこと' do
           @shipping_order.phone_number = ""
           @shipping_order.valid?
@@ -67,7 +67,8 @@ RSpec.describe ShippingOrder, type: :model do
           @shipping_order.phone_number = '090000000000000'
           @shipping_order.valid?
           expect(@shipping_order.errors.full_messages).to include("Phone number Too long")
-
+        end
       end
     end
-end
+  end
+

@@ -4,7 +4,7 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @item.title %>
     </h2>
     <div class='item-img-content'>
        <%= image_tag @item.image ,class:"item-box-img" %>
@@ -31,7 +31,8 @@
      <%= link_to "編集", edit_item_path, method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
     <%= link_to "削除", item_path, method: :delete, class:'item-destroy' %>
-    <% else %>
+    <% elsif user_signed_in?%>
+    <%# elseの場合は、条件を書かない時、elsifの場合は、条件を書くときに使う %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <%= link_to  "購入", item_shipping_address_index_path(@item) ,class:"item-red-btn"%>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
